@@ -1,7 +1,7 @@
-function ToDoList() {
+export default function ToDoList() {
   return (
     <div className="container">
-      <h2>To Do List</h2>
+      <h2>To-Do</h2>
     </div>
   );
 }
