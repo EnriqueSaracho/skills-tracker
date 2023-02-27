@@ -107,7 +107,13 @@ export default function ToDoList() {
       <ul>
         {itemsList.map((item, index) => (
           <li key={index}>
-            {item.task} <button>Add</button>
+            {item.task}
+            {item.skills.html && <p>HTML</p>}
+            {item.skills.css && <p>CSS</p>}
+            {item.skills.js && <p>JavaScript</p>}
+            {item.skills.react && <p>React.js</p>}
+            {item.skills.unity && <p>Unity</p>}
+            <button>Add</button>
             <button onClick={() => deleteItem(index)}>Delete</button>
           </li>
         ))}
