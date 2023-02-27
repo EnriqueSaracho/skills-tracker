@@ -17,6 +17,7 @@ export default function ToDoList() {
   const addToList = () => {
     setListItems([...listItems, text]);
     setText("");
+    setShowNewTask(false);
   };
 
   const deleteItem = (index) => {
@@ -45,10 +46,6 @@ export default function ToDoList() {
             <button onClick={() => deleteItem(index)}>Delete</button>
           </li>
         ))}
-        <li>
-          Task 1<button>Add</button>
-          <button>Delete</button>
-        </li>
       </ul>
     </div>
   );
