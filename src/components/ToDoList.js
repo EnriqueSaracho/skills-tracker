@@ -19,6 +19,10 @@ export default function ToDoList() {
     setText("");
   };
 
+  const deleteItem = (index) => {
+    setListItems(listItems.filter((item, i) => i !== index));
+  };
+
   return (
     <div className="container">
       <h2>To-Do</h2>
@@ -36,11 +40,13 @@ export default function ToDoList() {
       <button onClick={addClicked}>+</button>
       <ul>
         {listItems.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item} <button>Add</button>
+            <button onClick={() => deleteItem(index)}>Delete</button>
+          </li>
         ))}
         <li>
           Task 1<button>Add</button>
-          <button>Done</button>
           <button>Delete</button>
         </li>
       </ul>
