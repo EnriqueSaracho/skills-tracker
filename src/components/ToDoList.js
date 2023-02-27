@@ -36,9 +36,30 @@ export default function ToDoList() {
           ></textarea>
           <button onClick={addToList}>Add</button>
           <button onClick={cancelClicked}>Cancel</button>
+          <p>Skills:</p>
+          <label>
+            <input type="checkbox" />
+            HTML
+          </label>
+          <label>
+            <input type="checkbox" />
+            CSS
+          </label>
+          <label>
+            <input type="checkbox" />
+            JavaScript
+          </label>
+          <label>
+            <input type="checkbox" />
+            React.js
+          </label>
+          <label>
+            <input type="checkbox" />
+            Unity
+          </label>
         </div>
       )}
-      <button onClick={addClicked}>+</button>
+      {!showNewTask && <button onClick={addClicked}>+</button>}
       <ul>
         {listItems.map((item, index) => (
           <li key={index}>
