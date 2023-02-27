@@ -2,26 +2,30 @@ import { useState } from "react";
 import "./ToDoList.css";
 
 export default function ToDoList() {
-  const [showNewTask, setShowNewTask] = useState(false);
-  const [text, setText] = useState("");
-  const [listItems, setListItems] = useState([]);
+  const [showNewTask, setShowNewTask] = useState(false); // Shows or not the add-to-list form
+  const [text, setText] = useState(""); // Text inside the form textarea
+  const [itemsList, setItemsList] = useState([]); // Array of list items
 
+  // Shows the form
   const addClicked = () => {
     setShowNewTask(true);
   };
 
+  // Hides the form
   const cancelClicked = () => {
     setShowNewTask(false);
   };
 
+  // Adds item to itemsList
   const addToList = () => {
-    setListItems([...listItems, text]);
+    setItemsList([...itemsList, text]);
     setText("");
     setShowNewTask(false);
   };
 
+  // Delets item from itemsList
   const deleteItem = (index) => {
-    setListItems(listItems.filter((item, i) => i !== index));
+    setItemsList(itemsList.filter((item, i) => i !== index));
   };
 
   return (
@@ -61,7 +65,7 @@ export default function ToDoList() {
       )}
       {!showNewTask && <button onClick={addClicked}>+</button>}
       <ul>
-        {listItems.map((item, index) => (
+        {itemsList.map((item, index) => (
           <li key={index}>
             {item} <button>Add</button>
             <button onClick={() => deleteItem(index)}>Delete</button>

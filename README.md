@@ -11,4 +11,7 @@ This is an in-progress project. I'm trying to build an application that combines
   - Rendered to JSX the textarea value, the onclick() to the button, and a map function to the unordered list.
 
 - Implementing a way for the user to add the skills involved for each task.
+
   - Came up with an idea to do it with checkbox, in the same form that's used to add the list element.
+
+- How to store the value of the checkboxes inside each item.
