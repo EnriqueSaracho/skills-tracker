@@ -15,3 +15,5 @@ This is an in-progress project. I'm trying to build an application that combines
   - Came up with an idea to do it with checkbox, in the same form that's used to add the list element.
 
 - How to store the value of the checkboxes inside each item.
+  - Made a boolean state for each checkbox.
+  - Modified addToList(), instead of text, the function adds an object **"newTask"** with a task element that equals text, and a skills object with all the checkboxes boolean values.

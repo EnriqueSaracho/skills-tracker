@@ -5,6 +5,11 @@ export default function ToDoList() {
   const [showNewTask, setShowNewTask] = useState(false); // Shows or not the add-to-list form
   const [text, setText] = useState(""); // Text inside the form textarea
   const [itemsList, setItemsList] = useState([]); // Array of list items
+  const [htmlChecked, setHtmlChecked] = useState(false); // Form checkbox states
+  const [cssChecked, setCssChecked] = useState(false);
+  const [jsChecked, setJsChecked] = useState(false);
+  const [reactChecked, setReactChecked] = useState(false);
+  const [unityChecked, setUnityChecked] = useState(false);
 
   // Shows the form
   const addClicked = () => {
@@ -18,9 +23,24 @@ export default function ToDoList() {
 
   // Adds item to itemsList
   const addToList = () => {
-    setItemsList([...itemsList, text]);
+    const newTask = {
+      task: text,
+      skills: {
+        html: htmlChecked,
+        css: cssChecked,
+        js: jsChecked,
+        react: reactChecked,
+        unity: unityChecked,
+      },
+    };
+    setItemsList([...itemsList, newTask]);
     setText("");
     setShowNewTask(false);
+    setHtmlChecked(false);
+    setCssChecked(false);
+    setJsChecked(false);
+    setReactChecked(false);
+    setUnityChecked(false);
   };
 
   // Delets item from itemsList
@@ -42,23 +62,43 @@ export default function ToDoList() {
           <button onClick={cancelClicked}>Cancel</button>
           <p>Skills:</p>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={htmlChecked}
+              onChange={(e) => setHtmlChecked(e.target.checked)}
+            />
             HTML
           </label>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={cssChecked}
+              onChange={(e) => setCssChecked(e.target.checked)}
+            />
             CSS
           </label>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={jsChecked}
+              onChange={(e) => setJsChecked(e.target.checked)}
+            />
             JavaScript
           </label>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={reactChecked}
+              onChange={(e) => setReactChecked(e.target.checked)}
+            />
             React.js
           </label>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={unityChecked}
+              onChange={(e) => setUnityChecked(e.target.checked)}
+            />
             Unity
           </label>
         </div>
@@ -67,7 +107,7 @@ export default function ToDoList() {
       <ul>
         {itemsList.map((item, index) => (
           <li key={index}>
-            {item} <button>Add</button>
+            {item.task} <button>Add</button>
             <button onClick={() => deleteItem(index)}>Delete</button>
           </li>
         ))}
