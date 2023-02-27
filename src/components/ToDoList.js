@@ -16,7 +16,7 @@ export default function ToDoList() {
     <div className="container">
       <h2>To-Do</h2>
       {showNewTask && (
-        <div className={showNewTask ? "visible" : "hidden"}>
+        <div>
           <textarea placeholder="Task..."></textarea>
           <button>Add</button>
           <button onClick={cancelClicked}>Cancel</button>
